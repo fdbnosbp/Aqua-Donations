@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Plan</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Logo in the top left -->
+        <div class="logo">
+            <img src="!DOCTYPE html.png" alt="Logo" class="logo-img">
+        </div>
+
+        <header>
+            <h1>Choose Your Plan</h1>
+            <p>Donating will help the server and you will unlock <span>Exclusive Perks!</span></p>
+        </header>
+
+        <!-- Carousel Section -->
+        <div class="carousel">
+            <div class="carousel-slides">
+                <div class="slide active">
+                    <img src="carousel-placeholder-1.jpg" alt="Product Image 1">
+                    <div class="slide-text">
+                        <h3>Exclusive XP Boost</h3>
+                        <p>Get a 20% XP Boost to level up faster and dominate the game!</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="carousel-placeholder-2.jpg" alt="Product Image 2">
+                    <div class="slide-text">
+                        <h3>Special Contributor Role</h3>
+                        <p>Unlock a unique role and stand out in the community!</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="carousel-placeholder-3.jpg" alt="Product Image 3">
+                    <div class="slide-text">
+                        <h3>Access to Private Chats</h3>
+                        <p>Join exclusive chats and get early access to dev testing!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- Left Section: Rotating Plan Image -->
+            <div class="plan-image-container" id="plan-image-container">
+                <img id="rotating-image" src="contributor-placeholder.jpg" alt="Current Plan Image">
+                <div class="plan-info">
+                    <h2 id="plan-title">Lifetime Contributor</h2>
+                    <ul id="plan-details">
+                        <li>20% Extra XP Boost</li>
+                        <li>50% Daily Battle Stars and V-Bucks boost</li>
+                        <li>1000 V-Bucks</li>
+                        <li>Special Contributor role</li>
+                    </ul>
+                    <div class="price" id="plan-price">£9.99</div>
+                    <button class="get-button" id="get-button">GET CONTRIBUTOR</button>
+                </div>
+            </div>
+
+            <!-- Right Section: Plan Options -->
+            <div class="plan-options">
+                <div class="plan-option contributor" data-plan="contributor">
+                    <span class="label">Contributor</span>
+                    <img src="fire.png" alt="Diamond Icon" class="diamond-icon">
+                </div>
+                <div class="plan-option contributor-plus" data-plan="contributor-plus">
+                    <span class="label">Contributor +</span>
+                </div>
+                <div class="plan-option contributor-plus-plus" data-plan="contributor-plus-plus">
+                    <span class="label">Contributor ++</span>
+                </div>
+                <div class="plan-option starter-pack" data-plan="starter-pack">
+                    <span class="label">April Starter Pack</span>
+                </div>
+                <div class="plan-option donator" data-plan="donator">
+                    <span class="label">Booster</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Redirect Button -->
+        <div class="redirect-button">
+            <a href="https://exoticshopfn.mysellauth.com/" target="_blank">
+                <button>Learn More</button>
+            </a>
+        </div>
+
+        <footer>
+            <p>Note: All of these donation plans are purely cosmetic & do not provide any competitive advantage!</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript for Carousel and Plan Rotation -->
+    <script>
+        // Carousel JavaScript
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const progress = document.querySelector('.progress');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+
+            const progressWidth = ((index + 1) / totalSlides) * 100;
+            progress.style.width = `${progressWidth}%`;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 5000);
+        showSlide(currentSlide);
+
+        // Plan Rotation JavaScript
+        const plans = [
+            {
+                title: "Lifetime Contributor",
+                details: [
+                    "20% Extra XP Boost",
+                    "50% Daily Battle Stars and V-Bucks boost",
+                    "1000 V-Bucks",
+                    "Special Contributor role",
+                ],
+                price: "£9.99",
+                buttonText: "GET CONTRIBUTOR",
+                image: "1743465661959.jpg",
+                purchaseLink: "https://exoticshopfn.mysellauth.com/product/contributor-donator"
+            },
+            {
+                title: "Lifetime Contributor +",
+                details: [
+                    "30% Extra XP Boost",
+                    "75% Daily Battle Stars and V-Bucks boost",
+                    "2800 V-Bucks",
+                    "Special Contributor + role",
+                ],
+                price: "£14.99",
+                buttonText: "GET CONTRIBUTOR +",
+                image: "1743465617501.jpg",
+                purchaseLink: "https://exoticshopfn.mysellauth.com/product/contributor-donator-plus"
+            },
+            {
+                title: "Lifetime Contributor ++",
+                details: [
+                    "50% Extra XP Boost",
+                    "100% Daily Battle Stars and V-Bucks boost",
+                    "7500 V-Bucks",
+                    "Special Contributor ++ role",
+                    "Access to all private features and dev testing!"
+                ],
+                price: "£19.99",
+                buttonText: "GET CONTRIBUTOR ++",
+                image: "1743465889366.jpg",
+                purchaseLink: "https://exoticshopfn.mysellauth.com/product/contributor-plus-plus"
+            },
+            {
+                title: "April Starter Pack",
+                details: [
+                    "10% Extra XP Boost",
+                    "25% Daily Battle Stars and V-Bucks boost",
+                    "750 V-Bucks",
+                    "Ikonik Outfit + Scenario Emote",
+                    "Special Starter role",
+                ],
+                price: "£4.99",
+                buttonText: "GET STARTER PACK",
+                image: "1743466585815.jpg",
+                purchaseLink: "https://exoticshopfn.mysellauth.com/product/april-starter-pack"
+            },
+            {
+                title: "Booster",
+                details: [
+                    "15% Extra XP Boost",
+                    "40% Daily Battle Stars and V-Bucks boost",
+                    "950 V-Bucks",
+                    "Special Booster role",
+                ],
+                price: "£7.99",
+                buttonText: "GET BOOSTER",
+                image: "upscalemedia-transformed.png",
+                purchaseLink: "https://exoticshopfn.mysellauth.com/product/booster-exotic"
+            }
+        ];
+
+        let currentPlan = 0;
+        let rotationInterval;
+        const planImageContainer = document.getElementById('plan-image-container');
+        const rotatingImage = document.getElementById('rotating-image');
+        const planTitle = document.getElementById('plan-title');
+        const planDetails = document.getElementById('plan-details');
+        const planPrice = document.getElementById('plan-price');
+        const getButton = document.getElementById('get-button');
+        const planOptions = document.querySelectorAll('.plan-option[data-plan]');
+
+        function showPlan(index) {
+            planImageContainer.classList.remove('slide-in');
+            planImageContainer.classList.add('slide-out');
+
+            setTimeout(() => {
+                const plan = plans[index];
+                rotatingImage.src = plan.image;
+                planTitle.textContent = plan.title;
+                planDetails.innerHTML = plan.details.map(detail => `<li>${detail}</li>`).join('');
+                planPrice.textContent = plan.price;
+                getButton.textContent = plan.buttonText;
+                planImageContainer.classList.remove('slide-out');
+                planImageContainer.classList.add('slide-in');
+            }, 500);
+        }
+
+        function nextPlan() {
+            currentPlan = (currentPlan + 1) % plans.length;
+            showPlan(currentPlan);
+        }
+
+        function startRotation() {
+            rotationInterval = setInterval(nextPlan, 16000);
+        }
+
+        function stopRotation() {
+            clearInterval(rotationInterval);
+        }
+
+        planOptions.forEach((option, index) => {
+            option.addEventListener('click', () => {
+                stopRotation();
+                currentPlan = index;
+                showPlan(currentPlan);
+                setTimeout(startRotation, 30000);
+            });
+        });
+
+        getButton.addEventListener('click', () => {
+            const currentPlanData = plans[currentPlan];
+            window.open(currentPlanData.purchaseLink, '_blank');
+        });
+
+        showPlan(currentPlan);
+        startRotation();
+    </script>
+</body>
+</html>

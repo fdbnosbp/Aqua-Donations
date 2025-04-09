@@ -1,0 +1,322 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-image: url("Fortnite-Chapter-2-Season-3.jpg"); /* Replace with the actual path or URL to your image */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Removed the wave animation since the image already has waves */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.logo-img {
+    width: 100px;
+    height: auto;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, #90ee90, #32cd32, #ff4d4d, #ffcc00, #00ccff);
+    background-size: 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientGlow 5s ease infinite;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes gradientGlow {
+    0% { background-position: 0%; }
+    50% { background-position: 100%; }
+    100% { background-position: 0%; }
+}
+
+header p {
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+header p span {
+    color: #ff4d4d;
+    font-weight: bold;
+}
+
+.carousel {
+    margin-bottom: 30px;
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.carousel-slides {
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.slide-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.slide-text h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.slide-text p {
+    font-size: 0.9rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 5px;
+    background-color: #333;
+    margin-top: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: #ff4d4d;
+    width: 0;
+    transition: width 5s linear;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.plan-image-container {
+    width: 70%;
+    text-align: center;
+    position: relative;
+}
+
+#rotating-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: opacity 0.5s ease;
+}
+
+.plan-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    padding: 15px;
+    width: calc(100% - 40px);
+    text-align: left;
+}
+
+.plan-image-container.slide-out #rotating-image,
+.plan-image-container.slide-out .plan-info {
+    opacity: 0;
+}
+
+.plan-image-container.slide-in #rotating-image,
+.plan-image-container.slide-in .plan-info {
+    opacity: 1;
+}
+
+.plan-info h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.plan-info ul {
+    list-style: none;
+    margin-bottom: 15px;
+}
+
+.plan-info ul li {
+    font-size: 1.1rem;
+    margin: 8px 0;
+    position: relative;
+    padding-left: 20px;
+}
+
+.plan-info ul li::before {
+    content: "•";
+    color: #fff;
+    position: absolute;
+    left: 0;
+}
+
+.plan-info .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.plan-info .get-button {
+    background-color: #fff;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.plan-info .get-button:hover {
+    background-color: #e0e0e0;
+}
+
+.plan-options {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.plan-option {
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    position: relative;
+    height: 60px;
+}
+
+.plan-option.contributor {
+    background: linear-gradient(135deg, #00ff99, #00cc66);
+}
+
+.plan-option.contributor:hover {
+    background: linear-gradient(135deg, #00cc66, #00ff99);
+}
+
+.plan-option.contributor .diamond-icon {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 30px;
+    height: 30px;
+    transform: rotate(45deg);
+}
+
+.plan-option.contributor-plus {
+    background-color: #6600cc;
+}
+
+.plan-option.contributor-plus:hover {
+    background-color: #7a00ff;
+}
+
+.plan-option.contributor-plus-plus {
+    background-color: #cc6600;
+}
+
+.plan-option.contributor-plus-plus:hover {
+    background-color: #ff9900;
+}
+
+.plan-option.starter-pack {
+    background: linear-gradient(135deg, #00ccff, #0066cc);
+}
+
+.plan-option.starter-pack:hover {
+    background: linear-gradient(135deg, #0066cc, #00ccff);
+}
+
+.plan-option.donator {
+    background: linear-gradient(135deg, #ff66cc, #cc0066);
+}
+
+.plan-option.donator:hover {
+    background: linear-gradient(135deg, #cc0066, #ff66cc);
+}
+
+.plan-option .label {
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.redirect-button {
+    margin: 20px 0;
+}
+
+.redirect-button button {
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.redirect-button button:hover {
+    background-color: #ff6666;
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #888;
+}
